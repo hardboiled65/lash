@@ -84,6 +84,14 @@ class View:
     def set_fg(self, color):
         self._fg = color
 
+    def begin_bg(self):
+        if not self._bg.is_default():
+            print(f'\033[48;5;{self._bg.value()}m', end='')
+
+    def begin_fg(self):
+        if not self._fg.is_default():
+            print(f'\033[38;5;{self._fg.value()}m', end='')
+
     def update(self):
         y = self._y
 
@@ -95,15 +103,9 @@ class View:
             # Reset colors.
             print('\033[0m', end='', flush=True)
             # Set bg.
-            if (self._bg.is_default()):
-                pass
-            else:
-                print(f'\033[48;5;{self._bg.value()}m', end='')
+            self.begin_bg()
             # Set fg.
-            if (self._fg.is_default()):
-                pass
-            else:
-                print(f'\033[38;5;{self._fg.value()}m', end='')
+            self.begin_fg()
 
             print('*' * self._width, end='', flush=True)
             # Reset colors.
@@ -128,15 +130,9 @@ class Eye(View):
             # Reset colors.
             print('\033[0m', end='', flush=True)
             # Set bg.
-            if (self._bg.is_default()):
-                pass
-            else:
-                print(f'\033[48;5;{self._bg.value()}m', end='')
+            self.begin_bg()
             # Set fg.
-            if (self._fg.is_default()):
-                pass
-            else:
-                print(f'\033[38;5;{self._fg.value()}m', end='')
+            self.begin_fg()
 
             print('+', end='')
             print('-' * self._width - 2, end='')
