@@ -155,9 +155,6 @@ class Shell:
         print('\u001B[?1049l', end='')
 
     def render(self):
-        cols = 100
-        rows = 30
-
         print('\033[0,0H========', end='', flush=True)
 
         cols = get_cols()
