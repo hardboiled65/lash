@@ -36,7 +36,7 @@ def show_splash():
     lines = f.readlines()
     f.close()
 
-    print('\033[0,0H', end='', flush=True)
+    print('\033[0;0H', end='', flush=True)
     # Position row.
     for i in range(start_row):
         print('')
@@ -95,11 +95,11 @@ class View:
     def update(self):
         y = self._y
 
-        print(f'\033[{self._x},{y}H', end='', flush=True)
+        print(f'\033[{y};{self._x}H', end='', flush=True)
         print('\033[48;5;196m', end='')
         for i in range(self._height + 1):
             # Move to begin.
-            print(f'\033[{self._x},{y}H', end='', flush=True)
+            print(f'\033[{y};{self._x}H', end='', flush=True)
             # Reset colors.
             print('\033[0m', end='', flush=True)
             # Set bg.
@@ -123,10 +123,10 @@ class Eye(View):
 
     def update(self):
         y = 0
-        print(f'\033[{self._x},{y}H', end='', flush=True)
+        print(f'\033[{y};{self._x}H', end='', flush=True)
         for i in range(self._height + 1):
             # Move to begin.
-            print(f'\033[{self._x},{y}H', end='', flush=True)
+            print(f'\033[{y};{self._x}H', end='', flush=True)
             # Reset colors.
             print('\033[0m', end='', flush=True)
             # Set bg.
@@ -155,7 +155,7 @@ class Shell:
         print('\u001B[?1049l', end='')
 
     def render(self):
-        print('\033[0,0H========', end='', flush=True)
+        print('\033[0;0H========', end='', flush=True)
 
         cols = get_cols()
         rows = get_rows()
