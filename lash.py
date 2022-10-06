@@ -154,6 +154,12 @@ class Shell:
     def leave(self):
         print('\u001B[?1049l', end='')
 
+    def hide_cursor(self):
+        print('\033[?25l', end='')
+
+    def show_cursor(self):
+        print('\033[?25h', end='')
+
     def render(self):
         print('\033[0;0H========', end='', flush=True)
 
@@ -173,8 +179,10 @@ if __name__ == '__main__':
     shell = Shell()
     shell.enter()
 
+    shell.hide_cursor()
     show_splash()
     time.sleep(1)
+    shell.show_cursor()
 
     shell.render()
 
