@@ -149,10 +149,10 @@ class Shell:
         self._prompt_input = ''
 
     def enter(self):
-        print('\u001B[?1049h', end='', flush=True)
+        print('\033[?1049h', end='', flush=True)
 
     def leave(self):
-        print('\u001B[?1049l', end='')
+        print('\033[?1049l', end='')
 
     def hide_cursor(self):
         print('\033[?25l', end='')
