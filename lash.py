@@ -121,6 +121,11 @@ class Eye(View):
         self.set_bg(Color.Black)
         self.set_fg(Color.Red)
 
+        self._eye_id = ''
+
+    def set_eye_id(self, eye_id):
+        self._eye_id = eye_id
+
     def update(self):
         y = 0
         print(f'\033[{y};{self._x}H', end='', flush=True)
@@ -170,9 +175,11 @@ class Shell:
             view.update()
 
 
-class CloseButton(View):
+class CloseButton(Eye):
     def __init__(self):
         self._focused = False
+
+        self.set_eye_id('close-button')
 
 
 if __name__ == '__main__':
