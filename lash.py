@@ -92,6 +92,12 @@ class View:
         if not self._fg.is_default():
             print(f'\033[38;5;{self._fg.value()}m', end='')
 
+    def set_x(self, x):
+        self._x = x
+
+    def set_y(self, y):
+        self._y = y
+
     def update(self):
         y = self._y
 
@@ -194,6 +200,8 @@ if __name__ == '__main__':
     shell.render()
 
     view = View(0, 0, 5, 3)
+    view.set_x(2)
+    view.set_y(2)
     view.set_bg(Color.Red)
     view.set_fg(Color.Black)
     view.update()
