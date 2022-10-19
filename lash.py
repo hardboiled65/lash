@@ -134,11 +134,13 @@ class Eye(View):
         self._eye_id = eye_id
 
     def update(self):
-        y = 0
-        print(f'\033[{y};{self._x}H', end='', flush=True)
+        row = 1
+        col = self._x + 1
+
+        print(f'\033[{row};{col}H', end='', flush=True)
         for i in range(self._height + 1):
             # Move to begin.
-            print(f'\033[{y};{self._x}H', end='', flush=True)
+            print(f'\033[{row};{col}H', end='', flush=True)
             # Reset colors.
             print('\033[0m', end='', flush=True)
             # Set bg.
@@ -152,7 +154,7 @@ class Eye(View):
 
             # Reset colors.
             print('\033[0m', end='', flush=True)
-            y = y + 1
+            row = row + 1
 
 class Shell:
     def __init__(self):
