@@ -211,7 +211,7 @@ if __name__ == '__main__':
 
     print('$ ', end='')
     i = input()
-    while i != 'exit':
+    while i.strip() != 'exit':
         print('$ ', end='')
         i = input()
 
