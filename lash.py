@@ -64,6 +64,12 @@ class Color:
 Color.Default = Color(-1)
 Color.Black = Color(0)
 Color.Red = Color(1)
+Color.Green = Color(2)
+Color.Yellow = Color(3)
+Color.Blue = Color(4)
+Color.Magenta = Color(5)
+Color.Cyan = Color(6)
+Color.White = Color(7)
 
 
 class View:
@@ -205,8 +211,8 @@ if __name__ == '__main__':
     view = View(0, 0, 5, 3)
     view.set_x(2)
     view.set_y(2)
-    view.set_bg(Color.Red)
-    view.set_fg(Color.Black)
+    view.set_bg(Color.White)
+    view.set_fg(Color.Cyan)
     view.update()
 
     print('$ ', end='')
