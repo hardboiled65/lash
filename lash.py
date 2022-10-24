@@ -215,6 +215,9 @@ if __name__ == '__main__':
     view.set_fg(Color.Cyan)
     view.update()
 
+    print()
+    print('-- Prompt -', end='')
+    print('-' * (get_cols() - 11))
     print('$ ', end='')
     i = input()
     while i.strip(' ') != 'exit':
