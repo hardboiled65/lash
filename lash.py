@@ -167,6 +167,8 @@ class Shell:
         self._cursor_mode = True
         self._views = []
         self._prompt_input = ''
+        self._pwd = ''
+        self._return = 0
 
     def enter(self):
         print('\033[?1049h', end='', flush=True)
